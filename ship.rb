@@ -8,7 +8,7 @@ class Ship
   def initialize()
     @shipSprites = Sprites::Group.new
     @shipSurface = Surface.load "assets/images/ship.png"
-    @location = Vector[0, 0]
+    @location = [0, 0]
   end
 
   def draw(screen)
