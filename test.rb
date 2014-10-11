@@ -1,15 +1,25 @@
 require "rubygems"
 require "rubygame"
 
-screen = Rubygame::Screen.open [640, 480]
+require "./world"
 
-screen.title = "Hello Rubygame!"
+# Initialize the game
 
+# Screen initialization
+screen = Rubygame::Screen.open [1280, 768]
+screen.title = "Solar Berries"
+
+# Event initialization
 event_queue = Rubygame::EventQueue.new
-
 event_queue.enable_new_style_events
 
+# World initialization
+testWorld = World.new
+
 while event = event_queue.wait
-    p events
+    puts event
+    testWorld.draw(screen)
     break if event.is_a? Rubygame::Events::QuitRequested
+
+    screen.flip
 end
